@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>YAGAMI SHOP | L</title>
+    
+    <!-- الصور -->
+    <link rel="icon" type="image/webp" href="image1.webp">
+    <link rel="shortcut icon" type="image/webp" href="image1.webp">
+    <meta property="og:image" content="image1.webp">
+
+    <!-- الخطوط -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;800&family=Rubik+Glitch&family=Tajawal:wght@400;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --kira-red: #ff003c; /* أحمر ساطع */
+            --dark-void: #090909;
+            --panel-bg: #111;
+            --text-color: #eee;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Tajawal', sans-serif; }
+
+        body {
+            background-color: var(--dark-void);
+            color: var(--text-color);
+            overflow-x: hidden;
+            width: 100%;
+        }
+
+        /* خلفية مبتكرة: نبض أحمر في الظلام */
+        .kira-bg {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 0, 60, 0.05) 0%, transparent 60%);
+            z-index: -2;
+            animation: heartbeat 4s infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { opacity: 0.5; transform: scale(1); }
+            50% { opacity: 0.8; transform: scale(1.1); }
+        }
+
+        /* تأثير الخطوط الخلفية (Grid) */
+        .grid-lines {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+        }
+
+        /* الهيدر */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: relative;
+            z-index: 10;
+        }
+
+        .logo {
+            font-family: 'Rubik Glitch', system-ui;
+            font-size: 2.2rem;
+            color: var(--kira-red);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glitchText 3s infinite alternate-reverse;
+        }
+
+        @keyframes glitchText {
+            0% { text-shadow: 2px 0 #fff; }
+            100% { text-shadow: -2px 0 #00ffff; }
+        }
+
+        /* ============================
+           تصميم الهيرو المبتكر
+           ============================ */
+        .hero {
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 5%;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .hero-text {
+            flex: 1;
+            min-width: 300px;
+            z-index: 2;
+        }
+
+        .hero-title {
+            font-size: 4rem;
+            line-height: 1;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        
+        .hero-title span { color: var(--kira-red); display: block; font-family: 'Rubik Glitch', sans-serif; }
+
+        .hero-desc {
+            font-size: 1.1rem;
+            color: #aaa;
+            margin-bottom: 30px;
+            border-right: 3px solid var(--kira-red);
+            padding-right: 15px;
+            max-width: 500px;
+        }
+
+        /* زر بتصميم "Cyberpunk" */
+        .cyber-btn {
+            position: relative;
+            padding: 15px 40px;
+            background: var(--kira-red);
+            color: white;
+            font-weight: bold;
+            text-decoration: none;
+            text-transform: uppercase;
+            clip-path: polygon(15% 0, 100% 0, 100% 70%, 85% 100%, 0 100%, 0 30%);
+            display: inline-block;
+            transition: 0.3s;
+        }
+        
+        .cyber-btn:hover {
+            background: white;
+            color: black;
+            box-shadow: 0 0 20px white;
+        }
+
+        /* 
+           أنيميشن الصورة المبتكر (Hologram Glitch)
+           بدلاً من الحركة التقليدية، الصورة هنا كأنها هولوجرام
+        */
+        .hero-img-box {
+            flex: 1;
+            min-width: 300px;
+            display: flex;
+            justify-content: center;
+            position: relative;
+        }
+
+        .glitch-img {
+            width: 100%;
+            max-width: 450px;
+            /* قص الحواف بشكل حاد */
+            clip-path: polygon(10% 0, 100% 0, 100% 85%, 90% 100%, 0 100%, 0 15%);
+            filter: grayscale(100%) contrast(1.2);
+            border: 2px solid var(--kira-red);
+            /* تأثير الوميض */
+            animation: hologram 4s infinite;
+        }
+
+        @keyframes hologram {
+            0% { opacity: 0.8; filter: grayscale(100%) drop-shadow(0 0 0 transparent); }
+            5% { opacity: 1; filter: grayscale(0%) drop-shadow(5px 0 0 red); transform: translate(-2px, 0); }
+            10% { opacity: 0.8; filter: grayscale(100%) drop-shadow(0 0 0 transparent); transform: translate(0, 0); }
+            50% { filter: grayscale(100%); }
+            55% { filter: invert(1); } /* عكس الألوان للحظة */
+            60% { filter: grayscale(100%); }
+            100% { opacity: 0.8; }
+        }
+
+        /* ============================
+           طرق الدفع (نظام البطاقات الثابتة)
+           بدلاً من الشريط المتحرك
+           ============================ */
+        .payment-section {
+            padding: 50px 5%;
+            text-align: center;
+        }
+        
+        .section-header {
+            font-size: 2rem;
+            margin-bottom: 40px;
+            color: white;
+            font-weight: 900;
+        }
+        .section-header span { color: var(--kira-red); }
+
+        .payment-grid {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .pay-card {
+            background: #151515;
+            border: 1px solid #333;
+            padding: 15px 30px;
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            min-width: 200px;
+            justify-content: center;
+            transition: 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* خط أحمر يظهر عند اللمس */
+        .pay-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; width: 0%; height: 3px;
+            background: var(--kira-red); transition: 0.3s;
+        }
+        .pay-card:hover::after { width: 100%; }
+        
+        .pay-card:hover { transform: translateY(-5px); background: #1a1a1a; }
+        .pay-card i { font-size: 1.5rem; color: var(--kira-red); }
+        .pay-card span { font-weight: bold; font-family: 'Russo One', sans-serif; letter-spacing: 1px; }
+
+        /* الخدمات (مظهر مختلف) */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 5%;
+        }
+
+        .service-box {
+            background: linear-gradient(45deg, #111, #0a0a0a);
+            padding: 30px;
+            border: 1px solid #222;
+            position: relative;
+        }
+
+        .service-box h3 {
+            color: var(--kira-red);
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .service-box p { color: #888; font-size: 0.9rem; }
+        .service-box .icon-bg {
+            position: absolute;
+            top: 20px; left: 20px;
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.03);
+            z-index: 0;
+        }
+
+        /* بروفايل العميل (ياغامي ستايل) */
+        .profile-section {
+            margin-top: 80px;
+            padding: 60px 5%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            border-top: 2px solid var(--kira-red);
+            border-bottom: 2px solid var(--kira-red);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--kira-red);
+            object-fit: cover;
+            filter: grayscale(100%);
+            transition: 0.5s;
+        }
+        .profile-section:hover .profile-img { filter: grayscale(0%); transform: rotate(5deg); }
+
+        .profile-info h2 { color: white; font-size: 2rem; margin-bottom: 10px; }
+        .profile-info p { color: #888; }
+
+        /* الفوتر */
+        footer {
+            padding: 30px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #555;
+            background: #050505;
+        }
+
+        /* زر الواتساب (صغير وتلقائي) */
+        .whatsapp-mini {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            width: 50px; /* تصغير الحجم */
+            height: 50px;
+            background: #25d366;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            z-index: 1000;
+            text-decoration: none;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: 0.3s;
+        }
+        .whatsapp-mini:hover { transform: scale(1.1); background: #128c7e; }
+
+        /* التجاوب */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column-reverse; text-align: center; padding-top: 100px; }
+            .hero-title { font-size: 3rem; }
+            .hero-desc { margin: 0 auto 30px; border: none; padding: 0; }
+            .profile-section { flex-direction: column; text-align: center; }
+            .glitch-img { max-width: 300px; }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="kira-bg"></div>
+    <div class="grid-lines"></div>
+
+    <header>
+        <div class="logo">YAGAMI</div>
+        <div class="socials" style="display: flex; gap: 15px;">
+            <a href="https://www.facebook.com/adil.ben.ayyad.2025"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/adilbenayaad?igsh=MTNldjhwNHZjZW54eQ=="><i class="fab fa-instagram"></i></a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-text">
+            <h1 class="hero-title">THE NEW<br><span>WORLD</span></h1>
+            <p class="hero-desc">
+                مرحباً بك في متجر YAGAMI. حيث تجد كل ما تحتاجه للسيطرة. شحن فري فاير، بوياه باس، وحسابات نادرة.
+            </p>
+            <!-- رابط الواتساب المباشر مع الرسالة -->
+            <a href="https://wa.me/212621867907?text=السلام%20عليكم%20عادل،%20أريد%20شحن%20حسابي" class="cyber-btn">
+                ابدأ الطلب
+            </a>
+        </div>
+
+        <div class="hero-img-box">
+            <!-- الصورة بستايل الهولوجرام -->
+            <img src="image1.webp" alt="Yagami Shop" class="glitch-img">
+        </div>
+    </section>
+
+    <!-- طرق الدفع (بطاقات ثابتة) -->
+    <section class="payment-section">
+        <h2 class="section-header"><span>طرق</span> الدفع</h2>
+        <div class="payment-grid">
+            <div class="pay-card">
+                <i class="fab fa-bitcoin"></i>
+                <span>BYBIT</span>
+            </div>
+            <div class="pay-card">
+                <i class="fas fa-money-bill-wave"></i>
+                <span>CASH PLUS</span>
+            </div>
+            <div class="pay-card">
+                <i class="fas fa-coins"></i>
+                <span>BINANCE</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- الخدمات -->
+    <section class="services-section" style="margin-top: 50px;">
+        <h2 class="section-header" style="text-align: center;">قوانين <span>المتجر</span></h2>
+        <div class="services-grid">
+            <div class="service-box">
+                <i class="fas fa-gem icon-bg"></i>
+                <h3>شحن الجواهر</h3>
+                <p>تعبئة رصيدك فوراً عبر الـ ID. لا يوجد وقت للانتظار هنا.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-ticket-alt icon-bg"></i>
+                <h3>BOOYAH PASS</h3>
+                <p>تفعيل الباس الجديد بأفضل الأسعار في السوق.</p>
+            </div>
+            <div class="service-box">
+                <i class="fas fa-user-secret icon-bg"></i>
+                <h3>حسابات نادرة</h3>
+                <p>بيع وشراء الحسابات بضمان كامل من المتجر.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- بروفايل -->
+    <section class="profile-section">
+        <img src="image2.webp" alt="Adil" class="profile-img">
+        <div class="profile-info">
+            <h2>Adil Benayaad</h2>
+            <p>
+                العدالة الحقيقية هي المصداقية. متجر YAGAMI يضمن لك تعاملات آمنة وسريعة.
+                <br>
+                <span style="color: var(--kira-red);">+212 621-867907</span>
+            </p>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 YAGAMI SHOP. Created by Kira.</p>
+    </footer>
+
+    <!-- زر واتساب صغير مع رسالة تلقائية -->
+    <a href="https://wa.me/212621867907?text=السلام%20عليكم%20عادل،%20بدي%20اشحن%20فري%20فاير" class="whatsapp-mini" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+</body>
+</html>
